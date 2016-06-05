@@ -1,0 +1,82 @@
+<div class="jumbotron">
+  <i class="fa fa-gamepad" aria-hidden="true"></i>
+</div>
+
+<div ng-controller="TestCtrl1">
+  {{test}}
+  <input type="text" ng-model="binding"> {{binding}}
+</div>
+<div ng-controller="TestCtrl2">
+  {{test}}
+  <div class="panel panel-default">
+    <div class="panel-heading">ng-show</div>
+    <div class="panel-body">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="showSomething">Show Something</label>
+      </div>
+      <div class="alert alert-warning" ng-show="showSomething">Something</div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">ng-repeat</div>
+    <div class="panel-body">
+      <div class="alert alert-info" ng-repeat="item in repeatArray">{{$index+1}} : {{item}}</div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">ng-click</div>
+    <div class="panel-body" ng-click="clickParent($event)">
+      Parent
+      <button class="btn btn-info" ng-click="clickChild($event)">Child</button>
+      <button class="btn btn-danger" onClick="onClickNotWork(event)">wrong onClick</button>
+      <button class="btn btn-success" onClick="onClickFromOutside(event)">Click From Outside Angular</button>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">ng-change</div>
+    <div class="panel-body">
+      <input type="text" ng-change="removeSpaces()" ng-model="url">
+      <label>{{url}}</label>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">ng-options</div>
+    <div class="panel-body">
+      <select ng-options="person.id as person.name for person in people" ng-model="selectedPerson"></select>
+      <span class="label label-primary">id: {{selectedPerson}}</span>
+    </div>
+  </div>
+</div>
+<div ng-controller="Practice4">
+  <div class="panel panel-default">
+    <div class="panel-heading">Pre-defined filters</div>
+    <div class="panel-body">
+      <input type="text" ng-model="preFilters">
+      <span class="label label-primary">{{preFilters | currency : "£" }}</span>
+      <span class="label label-info">{{preFilters | number:2 }}</span>
+      <span class="label label-warning">{{preFilters | uppercase}}</span>
+      <span class="label label-danger">{{preFilters | lowercase}}</span>
+      <hr>
+      <input type="text" ng-model="searchText">
+      <div class="col-md-12" ng-repeat="item in filterArray|filter:searchText track by $index">{{item.name}}</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">filter from JavaScript</div>
+    <div class="panel-body">
+      <div class="col-md-12" ng-repeat="item in filteredArray track by $index">{{item.name}}</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Custom filter</div>
+    <div class="panel-body">
+      <input type="text" ng-model="customFilter">
+      <span class="label label-primary">{{customFilter | bytesFormat }}</span>
+    </div>
+  </div>
+</div>
