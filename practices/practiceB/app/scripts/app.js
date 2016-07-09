@@ -16,7 +16,8 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
     $stateProvider
       .state('main', {
         url: '/',
@@ -75,7 +76,7 @@ angular
         }
       })
       .state('404', {
-        url: '*path',
+        url: '/*path',
         template: '<div>404 Not found!</div>'
       });
   });
