@@ -12,8 +12,8 @@ angular.module('practiceBApp')
       templateUrl: 'scripts/directives/no-scope-directive/no-scope-directive.html',
       restrict: 'E',
       replace: 'true',
-      link: function postLink(scope, element, attrs) {
-        console.log('something');
+      link: function () {
+        console.log('from noScopeDirective');
       }
     };
   });

@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/{,*/}{,*/}{,*/}*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css', '<%= yeoman.app %>/{,*/}{,*/}{,*/}*.css'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css', '<%= yeoman.app %>/scripts/{,*/}{,*/}{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
       },
       gruntfile: {
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}{,*/}*.js'
+          '<%= yeoman.app %>/scripts/{,*/}{,*/}{,*/}*.js'
         ]
       },
       test: {
@@ -147,7 +147,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}{,*/}*.js'
+          '<%= yeoman.app %>/scripts/{,*/}{,*/}{,*/}*.js'
         ]
       },
       test: {
@@ -226,7 +226,7 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= yeoman.dist %>/scripts/{,*/}{,*/}*.js',
+          '<%= yeoman.dist %>/scripts/{,*/}{,*/}{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
           '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.dist %>/styles/fonts/*'
@@ -255,7 +255,7 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      html: ['<%= yeoman.dist %>/{,*/}*.html', '<%= yeoman.dist %>/scripts/{,*/}{,*/}{,*/}*.html'],
       css: ['<%= yeoman.dist %>/{,*/}{,*/}{,*/}{,*/}*.css'],
       js: ['<%= yeoman.dist %>/scripts/{,*/}{,*/}*.js'],
       options: {
@@ -343,7 +343,7 @@ module.exports = function (grunt) {
           usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
-        src: ['views/{,*/}*.html', 'scripts/directives/{,*/}{,*/}*.html'],
+        src: ['views/{,*/}*.html', 'scripts/{,*/}{,*/}{,*/}*.html'],
         dest: '.tmp/templateCache.js'
       }
     },

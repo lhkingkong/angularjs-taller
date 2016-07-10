@@ -1,6 +1,18 @@
 <div>
   <h2>This is the about view.</h2>
+  <h4>parent noScopeDirectiveValue: {{noScopeDirectiveValue}}</h4>
   <no-scope-directive></no-scope-directive>
+  <h4>parent withScopeDirectiveValue: {{withScopeDirectiveValue}}</h4>
+  <input ng-model="withScopeDirectiveValue" placeholder="parent withScopeDirectiveValue">
+  <with-scope-directive></with-scope-directive>
+  
+  <h4>parent isolatedScopeDirectiveValue: {{isolatedScopeDirectiveValue}}</h4>
+  <input ng-model="isolatedScopeDirectiveValue" placeholder="parent isolatedScopeDirectiveValue">
+  <isolated-scope-directive isolated-scope-directive-value="isolatedScopeDirectiveValue"></isolated-scope-directive>
+  
+  <h4>parent moduleNoScopeDirectiveValue: {{moduleNoScopeDirectiveValue}}</h4>
+  <module-no-scope-directive></module-no-scope-directive>
+  
   <div class="navbar navbar-default" role="navigation">
     <div class="container">
       <div class="collapse navbar-collapse" id="js-navbar-collapse">

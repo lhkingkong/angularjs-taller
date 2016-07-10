@@ -14,9 +14,11 @@ angular
     'ngCookies',
     'ui.router',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'moduleNoScopeDirective'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
+    console.log('config');
     $urlRouterProvider.otherwise('/');
     $stateProvider
       .state('main', {
