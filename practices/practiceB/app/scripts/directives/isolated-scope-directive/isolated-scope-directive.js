@@ -7,7 +7,7 @@
  * # isolatedScopeDirective
  */
 angular.module('practiceBApp')
-  .directive('isolatedScopeDirective', function () {
+  .directive('isolatedScopeDirective', function ($rootScope) {
     return {
       templateUrl: 'scripts/directives/isolated-scope-directive/isolated-scope-directive.html',
       restrict: 'E',
@@ -19,6 +19,11 @@ angular.module('practiceBApp')
         scope.isolatedScopeDirectiveValue = scope.isolatedScopeDirectiveValue();
         
         console.log('from isolatedScopeDirective');
+        
+        scope.sendValue = function(){
+          scope.$emit('aboutCtrlListener', scope.isolatedScopeDirectiveValue);
+          $rootScope.$broadcast('otherModule', scope.isolatedScopeDirectiveValue);
+        };
       }
     };
   });

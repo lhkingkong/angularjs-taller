@@ -8,10 +8,12 @@
  * Controller of the practiceBApp
  */
 angular.module('practiceBApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, taxesFactory, apiService) {
+    $scope.getAmountWithTaxes = function () {
+      return taxesFactory.getAmountWithTaxes($scope.factoryValue);
+    }
+    
+    apiService.get('users/', {}).then(function(response){
+      $scope.users = response.data;
+    });
   });

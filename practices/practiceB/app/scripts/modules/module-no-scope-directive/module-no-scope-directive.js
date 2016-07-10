@@ -22,6 +22,11 @@ angular.module('moduleNoScopeDirective', [])
           },
           post: function postLink(scope, iElement, iAttrs, controller) {
             console.log('directive compile post');
+            
+            scope.$on('otherModule', function (event, args) {
+              console.log('from otherModule');
+              console.log(args);
+            });
           }
         }
       }
