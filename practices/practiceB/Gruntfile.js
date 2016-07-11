@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/spec/{,*/}*.spec.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       styles: {
@@ -134,7 +134,7 @@ module.exports = function (grunt) {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/spec/{,*/}*.js']
+        src: ['test/spec/{,*/}*.spec.js']
       }
     },
 
@@ -151,7 +151,7 @@ module.exports = function (grunt) {
         ]
       },
       test: {
-        src: ['test/spec/{,*/}*.js']
+        src: ['test/spec/{,*/}*.spec.js']
       }
     },
 

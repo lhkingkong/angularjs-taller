@@ -16,6 +16,7 @@ angular.module('practiceBApp')
         isolatedScopeDirectiveValue: '&'
       },
       link: function (scope) {
+        scope.test = 1;
         scope.isolatedScopeDirectiveValue = scope.isolatedScopeDirectiveValue();
         
         console.log('from isolatedScopeDirective');
